@@ -1,0 +1,79 @@
+version: 1
+disable_existing_loggers: false
+formatters:
+  simple:
+    format: "[%(name)s|%(levelname)s|%(module)s]: %(asctime)s: %(message)s"
+    datefmt: "%Y-%m-%dT%H:%M:%S%z"
+  json:
+    (): app.logs.config.JSONFormatter
+    fmt_keys:
+      logger: name
+      level: levelname
+      timestamp: timestamp
+      message: message
+filters:
+  sensitive_data_filter:
+    (): app.logs.config.SensitiveDataFilter
+  unwanted_data_filter:
+    (): app.logs.config.UnwantedDataFilter
+handlers:
+  stdout:
+    class: logging.StreamHandler
+    level: DEBUG
+    filters: [sensitive_data_filter]
+    formatter: simple
+    stream: "ext://sys.stdout"
+  stdout-api-formatter:
+    class: logging.StreamHandler
+    level: DEBUG
+    filters: [sensitive_data_filter]
+    formatter: json
+    stream: "ext://sys.stdout"
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    filters: [sensitive_data_filter]
+    formatter: simple
+    filename: "app/logs/backend.log"
+    maxBytes: 504857600 # 500 MB
+    backupCount: 2
+loggers:
+  uvicorn:
+    level: WARNING
+    handlers:
+      - stdout
+    propagate: no
+  uvicorn.access: # Add this block to format the access logs
+    level: CRITICAL
+    handlers:
+      - stdout
+    propagate: no
+  uvicorn.error:
+    level: INFO
+    handlers:
+      - stdout
+      - file
+    propagate: no
+  media-market-gen:
+    level: INFO
+    handlers:
+      - stdout-api-formatter
+      - file
+    propagate: no
+  media-market-gen.request:
+    level: INFO
+    handlers:
+      - stdout-api-formatter
+      - file
+    propagate: no
+  media-market-gen.test:
+    level: INFO
+    handlers:
+      - stdout-api-formatter
+      - file
+    propagate: no
+root:
+  level: INFO
+  handlers:
+    - stdout
+    - file
