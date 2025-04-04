@@ -1,7 +1,7 @@
 from collections.abc import Awaitable, Callable
+from uuid import uuid4
 
 import pytest
-from uuid import uuid4
 from fastapi.encoders import jsonable_encoder
 from sqlalchemy.ext.asyncio import AsyncSession
 

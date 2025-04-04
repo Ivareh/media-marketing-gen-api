@@ -3,8 +3,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.models import Tenant
 from app.core.schemas import TenantCreate, TenantUpdate
 from app.crud import CRUD_tenants
-from app.tests.utils.utils import random_lower_string, random_uuid
 from app.logs.logger import logger_test
+from app.tests.utils.utils import random_lower_string, random_uuid
 
 
 async def model_random_create_tenant(

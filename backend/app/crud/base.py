@@ -3,10 +3,10 @@ from contextlib import asynccontextmanager
 from typing import Any, Generic, Literal, TypeVar, overload
 
 from pydantic import UUID4, BaseModel, TypeAdapter
-from sqlalchemy.sql import select, delete, Select, asc, desc, func
 from sqlalchemy.dialects.postgresql import insert
-from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import ArgumentError
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.sql import Select, asc, delete, desc, func, select
 
 from app.core.schemas import FilterParams
 from app.exceptions import (
@@ -234,7 +234,9 @@ class CRUDBase(Generic[ModelType, SchemaType, CreateSchemaType, UpdateSchemaType
         *,
         obj_in: ...,
         return_nothing: Literal[False] = False,
-    ) -> list[ModelType]: ...
+    ) -> list[ModelType]:
+        ...
+
     @overload
     async def create(
         self,
@@ -242,7 +244,9 @@ class CRUDBase(Generic[ModelType, SchemaType, CreateSchemaType, UpdateSchemaType
         *,
         obj_in: ...,
         return_nothing: Literal[True],
-    ) -> None: ...
+    ) -> None:
+        ...
+
     async def create(
         self,
         db: AsyncSession,

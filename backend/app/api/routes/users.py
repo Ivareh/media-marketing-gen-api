@@ -11,11 +11,11 @@ from app.api.message_utils import (
     delete_return_msg,
 )
 from app.core.schemas import (
+    FilterParams,
     Message,
-    UsersPublic,
     UserCreate,
     UserPublic,
-    FilterParams,
+    UsersPublic,
     UserUpdate,
 )
 from app.crud import CRUD_users

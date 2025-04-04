@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Security
 
-from app.api.routes import chat_sessions, chat_logs, users, utils, tenants
+from app.api.routes import chat_logs, chat_sessions, tenants, users, utils
 from app.core.security import azure_scheme
 
 api_router = APIRouter()

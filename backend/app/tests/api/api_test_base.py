@@ -1,15 +1,15 @@
-from typing import Callable, Awaitable
+from collections.abc import Awaitable, Callable
+from uuid import uuid4
 
+import pytest
 from fastapi.encoders import jsonable_encoder
 from httpx import AsyncClient
-import pytest
-from uuid import uuid4
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.tests.test_base import BaseTest
-from app.crud.base import ModelType, CreateSchemaType, UpdateSchemaType
 from app.core.config import settings
+from app.crud.base import CreateSchemaType, ModelType, UpdateSchemaType
 from app.logs.logger import logger_test
+from app.tests.test_base import BaseTest
 
 
 class APITestBase(BaseTest):

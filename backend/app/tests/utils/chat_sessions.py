@@ -1,10 +1,10 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.crud import CRUD_chat_sessions
 from app.core.models import ChatSession, Tenant, User
 from app.core.schemas import ChatSessionCreate, ChatSessionUpdate
-from app.tests.utils.users import create_random_user
+from app.crud import CRUD_chat_sessions
 from app.tests.utils.tenants import create_random_tenant
+from app.tests.utils.users import create_random_user
 from app.tests.utils.utils import ModelDeps, create_dep_ids_map
 
 

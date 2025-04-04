@@ -1,7 +1,7 @@
 from typing import Any
+from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict
-from uuid import UUID
 
 
 # Shared session props

@@ -17,6 +17,6 @@ class BaseTest:
 
         common_fields = obj.keys() & compare_obj.keys()
         for field in common_fields:
-            assert str(obj[field]) == str(compare_obj[field]), (
-                f"Mismatch in field '{field}'"
-            )
+            assert str(obj[field]) == str(
+                compare_obj[field]
+            ), f"Mismatch in field '{field}'"

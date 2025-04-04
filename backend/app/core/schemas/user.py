@@ -1,12 +1,12 @@
 from typing import Annotated
-
 from uuid import UUID
+
 from pydantic import (
-    PlainValidator,
     BaseModel,
     ConfigDict,
     EmailStr,
     Field,
+    PlainValidator,
 )
 
 from app.core.schemas.field_validators import datetime_hour_utc_offset

@@ -11,10 +11,10 @@ from app.api.message_utils import (
     delete_return_msg,
 )
 from app.core.schemas import (
-    TenantCreate,
-    TenantUpdate,
-    TenantPublic,
     FilterParams,
+    TenantCreate,
+    TenantPublic,
+    TenantUpdate,
 )
 from app.crud import CRUD_tenants
 

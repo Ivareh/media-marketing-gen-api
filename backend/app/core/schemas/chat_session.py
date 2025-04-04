@@ -1,7 +1,7 @@
 from typing import Annotated
+from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, PlainValidator
-from uuid import UUID
 
 from app.core.schemas.field_validators import datetime_hour_utc_offset
 
