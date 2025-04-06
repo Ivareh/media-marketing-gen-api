@@ -19,8 +19,8 @@ Optional, but highly recommended:
 
 We recommend using the Git command-line interface to download the source code for API project:
 
-1. Open a terminal and run `git clone https://github.com/Ivareh/media-marketing-gen-api.git`. This command downloads the API to a new `media-marketing-gen-api` directory in your current directory. Open a terminal and run `git clone https://github.com/Ivareh/media-marketing-gen-api.git`. This command downloads the API to a new `media-marketing-gen-api` directory in your current directory.
-1. Open the `media-marketing-gen-api` directory in your favorite code editor.
+1. Open a terminal and run `git clone https://github.com/Ivareh/media-marketing-gen-api.git`. This command downloads the API to a new `media-marketing-gen-api` directory in your current directory.
+2. Open the directory in your favorite code editor.
 
 For alternative ways of cloning this repository, refer to [GitHub's documentation](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
 
